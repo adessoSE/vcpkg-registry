@@ -1,0 +1,31 @@
+{
+    "name": "vefs",
+    "version-semver": "0.4.0-alpha.5",
+    "homepage": "",
+    "description": "",
+    "dependencies": [
+        "boost-exception",
+        "boost-io",
+        "boost-iterator",
+        "boost-predef",
+        "boost-program-options",
+        "boost-preprocessor",
+        "boost-system",
+        "boost-uuid",
+        "boringssl",
+        "concurrentqueue",
+        "deeppack",
+        "fmt",
+        "libb2",
+        "libcuckoo",
+        "llfio",
+        {
+            "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "vcpkg-cmake-config",
+            "host": true
+        }
+    ]
+}
