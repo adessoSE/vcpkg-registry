@@ -5,7 +5,7 @@ vcpkg_from_git(
     REF 169f891e525033d40a2ab3230cd178f5855b8014 # v0.4.0-alpha.5
     HEAD_REF develop
 )
-vcpkg_configure_cmake(
+vcpkg_cmake_configure(
     SOURCE_PATH ${SOURCE_PATH}
 )
 
