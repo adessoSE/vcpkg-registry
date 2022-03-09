@@ -1,7 +1,6 @@
 {
     "name": "vefs",
-    "version-semver": "0.4.0",
-    "port-version": 1,
+    "version-semver": "0.4.1-alpha.1",
     "homepage": "",
     "description": "",
     "dependencies": [
@@ -15,6 +14,7 @@
         "boost-uuid",
         "boringssl",
         "concurrentqueue",
+        "concrete",
         "deeppack",
         "fmt",
         "libb2",
