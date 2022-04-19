@@ -1,9 +1,10 @@
 {
     "name": "vefs",
-    "version-semver": "0.4.1-alpha.3",
+    "version-semver": "0.5.0-alpha.2",
     "homepage": "",
     "description": "",
     "dependencies": [
+        "benchmark",
         "boost-exception",
         "boost-io",
         "boost-iterator",
@@ -14,12 +15,14 @@
         "boost-uuid",
         "boringssl",
         "concurrentqueue",
-        "concrete",
         "deeppack",
         "fmt",
         "libb2",
         "libcuckoo",
-        "llfio",
+        {
+            "name": "llfio",
+            "features": [ "cxx20" ]
+        },
         {
             "name": "vcpkg-cmake",
             "host": true
