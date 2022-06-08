@@ -1,8 +1,7 @@
 {
     "name": "vefs",
-    "version-semver": "0.5.0-alpha.2",
-    "homepage": "",
-    "description": "",
+    "version-semver": "0.5.0-alpha.3",
+    "homepage": "https://github.com/adesso/libvefs",
     "dependencies": [
         "benchmark",
         "boost-exception",
@@ -21,6 +20,10 @@
         "libcuckoo",
         {
             "name": "llfio",
+            "features": [ "cxx20" ]
+        },
+        {
+            "name": "outcome",
             "features": [ "cxx20" ]
         },
         {

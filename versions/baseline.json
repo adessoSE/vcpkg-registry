@@ -1,7 +1,7 @@
 {
     "default": {
         "vefs": {
-            "baseline": "0.5.0-alpha.2",
+            "baseline": "0.5.0-alpha.3",
             "port-version": 0
         }
     }
