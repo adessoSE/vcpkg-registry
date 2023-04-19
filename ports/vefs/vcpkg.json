@@ -1,6 +1,7 @@
 {
     "name": "vefs",
     "version-semver": "0.5.0-beta.3",
+    "port-version": 1,
     "homepage": "https://github.com/adesso/libvefs",
     "dependencies": [
         "base64",
@@ -24,10 +25,7 @@
         "fmt",
         "libb2",
         "libcuckoo",
-        {
-            "name": "llfio",
-            "version>=": "2.0-20220525"
-        },
+        "llfio",
         "outcome",
         "stduuid",
         {
