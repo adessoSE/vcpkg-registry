@@ -1,7 +1,6 @@
 {
     "name": "vefs",
-    "version-semver": "0.5.0-beta.3",
-    "port-version": 1,
+    "version-semver": "0.5.0-beta.4",
     "homepage": "https://github.com/adesso/libvefs",
     "dependencies": [
         "base64",
@@ -11,8 +10,6 @@
         "boost-exception",
         "boost-integer",
         "boost-intrusive",
-        "boost-iterator",
-        "boost-json",
         "boost-mp11",
         "boost-predef",
         "boost-preprocessor",
@@ -25,7 +22,10 @@
         "fmt",
         "libb2",
         "libcuckoo",
-        "llfio",
+        {
+            "name": "llfio",
+            "features": ["status-code"]
+        },
         "outcome",
         "stduuid",
         {
