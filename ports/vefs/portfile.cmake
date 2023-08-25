@@ -1,9 +1,9 @@
 
-vcpkg_from_git(
+vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    URL ssh://git@mdk-bs-dev02.test-server.ag:2224/native/vefs.git
-    REF ee34d0f2cc3ef2bd880b59733efbbfa1207fdc3b # v0.5.0-beta.4
-    HEAD_REF master
+    REPO "adessoSE/libvefs"
+    REF "v${VERSION}"
+    SHA512 2fecbd8e90ad5132a75efaecb42658a622f05b6318accfb4dc2ead660b54cbe94f88b039b2bb38b685e02db653a789825398af1279cf339d9fbf9ef03ead1797
 )
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"

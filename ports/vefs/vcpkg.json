@@ -1,7 +1,8 @@
 {
     "name": "vefs",
     "version-semver": "0.5.0-beta.4",
-    "homepage": "https://github.com/adesso/libvefs",
+    "port-version": 1,
+    "homepage": "https://github.com/adessoSE/libvefs",
     "dependencies": [
         "base64",
         "benchmark",
