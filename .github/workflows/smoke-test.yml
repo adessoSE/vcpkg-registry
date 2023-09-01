@@ -1,0 +1,97 @@
+name: Install Smoke Test
+on:
+  push:
+    branches:
+      - master
+      - wip/**
+  pull_request:
+  merge_group:
+
+jobs:
+  install:
+    name: ${{ matrix.os }}-${{ matrix.compiler }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        baseline: [f6a5d4e8eb7476b8d7fc12a56dff300c1c986131]
+        dplx_baseline: [f7982f12e092037c9ff86c3de381efca14377ddb]
+        os: [ubuntu-22.04, windows-2022]
+        compiler: [gcc, msvc]
+        exclude:
+          - os: windows-2022
+            compiler: gcc
+          - os: ubuntu-22.04
+            compiler: msvc
+        include:
+          - os: ubuntu-22.04
+            triplet: x64-linux
+          - os: windows-2022
+            triplet: x64-windows-static
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install go (boringSSL build dependency)
+        if: ${{ !startsWith(matrix.os, 'windows-') }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: '>=1.20.7'
+      - name: Install nasm (boringSSL build dependency)
+        if: ${{ startsWith(matrix.os, 'ubuntu-') }}
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq install nasm
+
+      - name: Generate vcpkg-configuration
+        shell: bash
+        run: |
+          shopt -s nullglob
+          cd '${{ github.workspace }}'
+          pushd ports
+          ports=(*)
+          popd
+          jports=$(jq --compact-output --null-input '$ARGS.positional' --args -- "${ports[@]}")
+          mkdir test
+          echo '{
+            "default-registry": {
+              "kind": "builtin",
+              "baseline": "${{ matrix.baseline }}"
+            },
+            "registries": [
+              {
+                "kind": "git",
+                "repository": "https://github.com/deeplex/vcpkg-registry",
+                "baseline": "${{ matrix.dplx_baseline }}",
+                "packages": [
+                  "base64",
+                  "concrete",
+                  "deeppack",
+                  "deeplog",
+                  "libb2",
+                  "libcuckoo"
+                ]
+              },
+              {
+                "kind": "git",
+                "repository": ${{ toJSON(github.workspace) }},
+                "baseline": "${{ github.sha }}",
+                "packages": '"$jports"'
+              }
+            ]
+          }' > test/vcpkg-configuration.json
+          echo '{
+            "name": "registry-test",
+            "version": "0.0.0",
+            "dependencies": '"$jports"'
+          }' > test/vcpkg.json
+
+      - uses: lukka/run-vcpkg@v11
+        env:
+          VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }}
+        with:
+          vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+          vcpkgGitCommitId: '${{ matrix.baseline }}'
+          vcpkgJsonGlob: 'test/vcpkg.json'
+          runVcpkgInstall: true
+

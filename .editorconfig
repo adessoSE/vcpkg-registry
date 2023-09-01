@@ -9,6 +9,11 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.y{,a}ml]
+indent_size = 2
+[*.clang-{format,tidy}]
+indent_size = 2
+
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
