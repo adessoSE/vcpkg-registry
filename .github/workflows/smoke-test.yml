@@ -32,6 +32,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install go (boringSSL build dependency)
+        if: ${{ !startsWith(matrix.os, 'windows-') }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: '>=1.20.7'
+      - name: Install nasm (boringSSL build dependency)
+        if: ${{ startsWith(matrix.os, 'ubuntu-') }}
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq install nasm
+
       - name: Generate vcpkg-configuration
         shell: bash
         run: |
