@@ -1,41 +1,42 @@
 {
-    "name": "vefs",
-    "version-semver": "0.5.0",
-    "port-version": 0,
-    "homepage": "https://github.com/adessoSE/libvefs",
-    "dependencies": [
-        "base64",
-        "boost-container",
-        "boost-endian",
-        "boost-exception",
-        "boost-integer",
-        "boost-intrusive",
-        "boost-mp11",
-        "boost-predef",
-        "boost-preprocessor",
-        "boost-throw-exception",
-        "boost-type-traits",
-        "boringssl",
-        "concrete",
-        "concurrentqueue",
-        "deeplog",
-        "deeppack",
-        "fmt",
-        "libb2",
-        "libcuckoo",
-        {
-            "name": "llfio",
-            "features": ["status-code"]
-        },
-        "outcome",
-        "stduuid",
-        {
-            "name": "vcpkg-cmake",
-            "host": true
-        },
-        {
-            "name": "vcpkg-cmake-config",
-            "host": true
-        }
-    ]
+  "name": "vefs",
+  "version-semver": "0.5.1-alpha.0",
+  "homepage": "https://github.com/adessoSE/libvefs",
+  "dependencies": [
+    "base64",
+    "boost-container",
+    "boost-endian",
+    "boost-exception",
+    "boost-integer",
+    "boost-intrusive",
+    "boost-mp11",
+    "boost-predef",
+    "boost-preprocessor",
+    "boost-throw-exception",
+    "boost-type-traits",
+    "boringssl",
+    "concrete",
+    "concurrentqueue",
+    "deeplog",
+    "deeppack",
+    "fmt",
+    "libb2",
+    "libcuckoo",
+    {
+      "name": "llfio",
+      "features": [
+        "status-code"
+      ]
+    },
+    "outcome",
+    "stduuid",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
 }
