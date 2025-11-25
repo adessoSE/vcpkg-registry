@@ -68,7 +68,7 @@ jobs:
                   "concrete",
                   "deeppack",
                   "deeplog",
-                  "libb2",
+                  "libb2-reforged",
                   "libcuckoo"
                 ]
               },
