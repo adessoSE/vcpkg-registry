@@ -3,7 +3,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO "adessoSE/libvefs"
     REF "v${VERSION}"
-    SHA512 d0f3474d5be8d4fd49710da649dd3415a710ba1cdd8b8ab3db3ea7d7a2c6a78f1d965997166f9a362d665feb95d2d4ef7f24b1c2a23e03af32ff159d87cfd7aa
+    SHA512 f7a3631a31e41194aeda8f503970b45da6ef7b7004c4a730ff490acb31d5b915996645a5ce6bb7e2ea46c981188a515c8b97921a54f458fc41857c1ea65625c8
 )
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
