@@ -14,8 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        baseline: [a42af01b72c28a8e1d7b48107b33e4f286a55ef6]
-        dplx_baseline: [90373c127f67e25393120e7332270aa1a27d54f8]
+        baseline: [ce613c41372b23b1f51333815feb3edd87ef8a8b]
+        dplx_baseline: [14ca3f0af80f32fd3f478d04b04403a6c0fe66c8]
         os: [ubuntu-22.04, windows-2022]
         compiler: [gcc, msvc]
         exclude:
@@ -68,7 +68,7 @@ jobs:
                   "concrete",
                   "deeppack",
                   "deeplog",
-                  "libb2",
+                  "libb2-reforged",
                   "libcuckoo"
                 ]
               },

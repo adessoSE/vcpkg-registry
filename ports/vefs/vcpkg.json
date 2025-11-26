@@ -1,6 +1,6 @@
 {
   "name": "vefs",
-  "version-semver": "0.5.1-alpha.0",
+  "version-semver": "0.6.0-alpha.1",
   "homepage": "https://github.com/adessoSE/libvefs",
   "dependencies": [
     "base64",
@@ -20,7 +20,12 @@
     "deeplog",
     "deeppack",
     "fmt",
-    "libb2",
+    {
+      "name": "libb2-reforged",
+      "features": [
+        "libb2-compat"
+      ]
+    },
     "libcuckoo",
     {
       "name": "llfio",
